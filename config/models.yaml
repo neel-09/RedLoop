@@ -1,0 +1,18 @@
+tiers:
+  nano:
+    model_id: nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B
+    price_per_1m: {input: 0.06, output: 0.24}
+  super:
+    model_id: nvidia/nemotron-3-super-120b-a12b
+    price_per_1m: {input: 0.30, output: 0.90}
+  ultra:
+    model_id: nvidia/Nemotron-3-Ultra-550b-a55b
+    price_per_1m: {input: 1.00, output: 3.00}
+
+# max_tokens values are provisional: check finish_reason in the call log
+# and raise any purpose that shows "length" (truncation).
+purposes:
+  victim_reply:      {tier: nano,  effort: low, max_tokens: 8000}
+  attack_generation: {tier: super, effort: low,     max_tokens: 4000}
+  judge:             {tier: ultra, effort: none,    max_tokens: 2000}
+  patch_draft:       {tier: super, effort: none,    max_tokens: 4000}
