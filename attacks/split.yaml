@@ -1,8 +1,0 @@
-# Fixed before any attack exists. Every attack gets its label at creation.
-# An attack is held_out if EITHER rule matches; otherwise train.
-# Held-out attacks and their results are NEVER shown to the patcher.
-held_out:
-  victims: [tool_assistant]
-  families: [obfuscation]
-families: [direct_injection, indirect_injection, system_prompt_extraction,
-           tool_abuse_exfiltration, multi_turn_escalation, obfuscation]
